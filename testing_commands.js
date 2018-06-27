@@ -12,13 +12,7 @@ class TestingCommands extends commando.Command {
     }
     
     async run(message, args) {
-        if (args) {
-            message.channel.send('args true');
-            console.log(typeof arguements);
-        }
-        else {
-            message.channel.send('args not present');
-        }
+        
     }
 }
 
