@@ -1,0 +1,32 @@
+{
+  "name": "discordbottest",
+  "version": "1.0.0",
+  "description": "trying out discord's bot functionality",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brokentari/DiscordTestBot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "test"
+  ],
+  "author": "saul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brokentari/DiscordTestBot/issues"
+  },
+  "homepage": "https://github.com/brokentari/DiscordTestBot#readme",
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "discord.js-commando": "^0.10.0",
+    "enmap": "^2.6.3",
+    "enmap-level": "^2.1.0",
+    "fs": "0.0.1-security",
+    "sqlite": "^2.9.2"
+  }
+}
