@@ -53,9 +53,6 @@ bot.on('message', message => {
         })
         message.channel.send('d00d sweared ' + swear_indicator + ' times');
     }
-
-    console.log(message.mentions.members.keyArray());
-    
     
     /*
     if (message.author.id == 459449641579053057) {
