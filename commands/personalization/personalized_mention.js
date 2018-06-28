@@ -22,7 +22,7 @@ class PersonalizedMentionCommand extends commando.Command {
         var auth_id = message.author.id;
         messagesObj[auth_id] = args;
         
-        fs.writeFile(__dirname + '\\messages.json', JSON.stringify(messagesObj, null, 4), (error) => {
+        fs.writeFileSync(__dirname + '\\messages.json', JSON.stringify(messagesObj, null, 4), (error) => {
             console.log('error caught');
         });
     }

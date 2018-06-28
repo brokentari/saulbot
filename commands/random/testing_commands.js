@@ -40,9 +40,15 @@ class TestingCommands extends commando.Command {
         //    console.log('key in object');
        //} else console.log('key nonexisten');
 
-        if (isEmpty(message.mentions.members.keyArray())) {
+       /* 
+       if (isEmpty(message.mentions.members.keyArray())) {
             console.log('array empty')
         } else console.log('array not empty');
+        */
+
+        console.log('message: ' + message.content + ' mention: ' + message.mentions.members.keyArray()[0]);
+        message.channel.send('<:pingsocker:461918432770785292>');
+        message.channel.send(':weary:');
     }
 }
 

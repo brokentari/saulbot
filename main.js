@@ -16,7 +16,7 @@ bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '\\commands');  // registers commands to the bot and its groups
 
 const swear_list = ['fuck', 'ass', 'shit', 'hell', 'bollocks', 'fuckass', 'assshit', 'fuckhell', 'shithell', 'assfuck',
-                        'motherfucker', 'goddamn', 'damn', 'arse', 'asshole', 'fck'];
+                        'motherfucker', 'goddamn', 'damn', 'arse', 'asshole', 'fck', 'fucking', 'fuckin', 'fckn'];
 
 bot.on('ready', function() {
     bot.user.setUsername("saulbot");
@@ -38,7 +38,7 @@ bot.on('message', message => {
    
     
     if (!(isEmpty(message.mentions.members.keyArray()))) {
-        var auth_id = message.author.id;
+        var auth_id = String(message.mentions.members.keyArray()[0]);
 
         var pers_mess = fs.readFileSync(__dirname + '\\commands\\personalization\\messages.json');
         var messagesObj = []
@@ -46,7 +46,9 @@ bot.on('message', message => {
 
         for (var i = 0; i < message.mentions.members.keyArray().length; i++) {
             if (message.author.id in messagesObj) {
-                message.channel.send(messagesObj[auth_id]);
+                message.channel.send(String(messagesObj[auth_id]))
+                    .then(message => console.log('message sent successfully'))
+                    .catch(console.error);
             }
         }
     }
