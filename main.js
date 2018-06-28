@@ -7,8 +7,11 @@ var objsArray = []
 objsArray = JSON.parse(auth); // loads in auth token
 
 
+
+
 bot.registry.registerGroup('random', 'Random');
 bot.registry.registerGroup('trivia', 'Trivia');
+bot.registry.registerGroup('personalization', 'Personalization')
 bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + '\\commands');  // registers commands to the bot and its groups
 
@@ -23,16 +26,38 @@ bot.on('ready', function() {
 
 bot.on('message', message => {
 
-    var message_words = message.content.split(' ');
+    function isEmpty(obj) {
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
+    }
 
+    var message_words = message.content.split(' ');
+   
+    
+    if (!(isEmpty(message.mentions.members.keyArray()))) {
+        var auth_id = message.author.id;
+
+        var pers_mess = fs.readFileSync(__dirname + '\\commands\\personalization\\messages.json');
+        var messagesObj = []
+        messagesObj = JSON.parse(pers_mess);
+
+        for (var i = 0; i < message.mentions.members.keyArray().length; i++) {
+            if (message.author.id in messagesObj) {
+                message.channel.send(messagesObj[auth_id]);
+            }
+        }
+    }
+    
+    /*
     if (message.mentions.members.keyArray().includes('141255836914679808')) {
         if (message.author.id != 460914316158304278) {
             message.channel.send('do not speak to saul unless you\'re spoken to');
         }
-        else {
-            
-        }
     }
+    */
 
     var swear_indicator = 0;
     for (var i = 0; i < message_words.length; i++) {
