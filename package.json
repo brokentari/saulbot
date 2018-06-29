@@ -1,14 +1,14 @@
 {
-  "name": "discordbottest",
-  "version": "1.0.0",
-  "description": "trying out discord's bot functionality",
+  "name": "saulbot",
+  "version": "1.2.0",
+  "description": "fun bot for the fun people at northeastern",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brokentari/DiscordTestBot.git"
+    "url": "git+https://github.com/brokentari/saulbot.git"
   },
   "keywords": [
     "discord",
@@ -18,9 +18,9 @@
   "author": "saul",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brokentari/DiscordTestBot/issues"
+    "url": "https://github.com/brokentari/saulbot/issues"
   },
-  "homepage": "https://github.com/brokentari/DiscordTestBot#readme",
+  "homepage": "https://github.com/brokentari/saulbot#readme",
   "dependencies": {
     "discord.js": "^11.3.2",
     "discord.js-commando": "^0.10.0",
