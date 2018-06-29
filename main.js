@@ -34,7 +34,7 @@ bot.on('message', message => {
         return true;
     }
 
-    var message_words = message.content.split(' ');
+    var message_words = message.content.toLowerCase().split(' ');
    
     
     if (!(isEmpty(message.mentions.members.keyArray()))) {
