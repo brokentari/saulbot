@@ -6,3 +6,9 @@ node_modules/
 
 # point system database
 data/
+
+# vs.code settings
+.vscode/
+
+# personalized messages json
+messages.json
