@@ -8,9 +8,6 @@ var auth = fs.readFileSync(__dirname + '\\auth.json');
 var objsArray = [];
 objsArray = JSON.parse(auth); // loads in auth token
 
-
-
-
 bot.registry.registerGroup('random', 'Random');
 bot.registry.registerGroup('trivia', 'Trivia');
 bot.registry.registerGroup('personalization', 'Personalization');
