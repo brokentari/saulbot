@@ -28,6 +28,8 @@ class PersonalizedMentionCommand extends commando.Command {
         fs.writeFileSync(__dirname + '\\messages.json', JSON.stringify(messagesObj, null, 4), (error) => {
             console.log('error caught');
         });
+
+        message.channel.send('message personalized: ready');
     }
 
 }
