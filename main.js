@@ -38,29 +38,25 @@ bot.on('message', message => {
    
     
     if (!(isEmpty(message.mentions.members.keyArray()))) {
-        var auth_id = String(message.mentions.members.keyArray()[0]);
+       
 
         var pers_mess = fs.readFileSync(__dirname + '\\commands\\personalization\\messages.json');
         var messagesObj = []
         messagesObj = JSON.parse(pers_mess);
 
         for (var i = 0; i < message.mentions.members.keyArray().length; i++) {
-            if (message.author.id in messagesObj) {
+            var auth_id = String(message.mentions.members.keyArray()[i]);
+            if (messagesObj[auth_id] != undefined && message.author.id != 460914316158304278) {
                 message.channel.send(String(messagesObj[auth_id]))
-                    .then(message => console.log('message sent successfully'))
+                    .then(message => console.log('message: ' + message))
                     .catch(console.error);
+            }
+            else {
+                
             }
         }
     }
     
-    /*
-    if (message.mentions.members.keyArray().includes('141255836914679808')) {
-        if (message.author.id != 460914316158304278) {
-            message.channel.send('do not speak to saul unless you\'re spoken to');
-        }
-    }
-    */
-
     var swear_indicator = 0;
     for (var i = 0; i < message_words.length; i++) {
         for (var j = 0; j < swear_list.length; j++) {
@@ -80,12 +76,6 @@ bot.on('message', message => {
         })
         message.channel.send('d00d sweared ' + swear_indicator + ' times');
     }
-    
-    /*
-    if (message.author.id == 459449641579053057) {
-        message.channel.send('don\'t listen to that bot, it\'s always wrong and it sucks');
-    }
-    */
 })
 
 bot.login(objsArray.token);
