@@ -17,7 +17,6 @@ var contents = fs.readFileSync(__dirname + '\\pokedex.json');
 var objsArray = [];
 objsArray = JSON.parse(contents); // creates json db from pokedex
 
-
 class pokeTrivia extends commando.Command {
     constructor(client) {
         super(client, {
@@ -52,8 +51,6 @@ class pokeTrivia extends commando.Command {
             if (!(PointSystem.has(message.author.id))) {
                 PointSystem.set(message.author.id, 0);
             }
-
-
 
             var file_path = __dirname + "\\thm\\" + padNum(pokeNum) + pokeName + ".png";
 

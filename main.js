@@ -36,10 +36,7 @@ bot.on('message', message => {
 
     var message_words = message.content.toLowerCase().split(' ');
 
-
     if (!(isEmpty(message.mentions.members.keyArray()))) {
-
-
         var pers_mess = fs.readFileSync(__dirname + '\\commands\\personalization\\messages.json');
         var messagesObj = [];
         messagesObj = JSON.parse(pers_mess);
