@@ -27,6 +27,7 @@
     "enmap": "^2.6.3",
     "enmap-level": "^2.1.0",
     "fs": "0.0.1-security",
+    "rapidapi-connect": "0.0.6",
     "sqlite": "^2.9.2",
     "update-json-file": "^1.1.1",
     "uws": "^10.148.1"
