@@ -2,29 +2,32 @@
 
 const commando = require('discord.js-commando');
 const fs = require('fs');
-const bot = new commando.Client(); // imports
+const client = new commando.Client(); // imports
 
 var auth = fs.readFileSync(__dirname + '\\auth.json');
 var objsArray = [];
 objsArray = JSON.parse(auth); // loads in auth token
 
-bot.registry.registerGroup('random', 'Random');
-bot.registry.registerGroup('trivia', 'Trivia');
-bot.registry.registerGroup('personalization', 'Personalization');
-bot.registry.registerDefaults();
-bot.registry.registerCommandsIn(__dirname + '\\commands'); // registers commands to the bot and its groups
+client.registry.registerGroup('random', 'Random');
+client.registry.registerGroup('trivia', 'Trivia');
+client.registry.registerGroup('personalization', 'Personalization');
+client.registry.registerDefaults();
+client.registry.registerCommandsIn(__dirname + '\\commands'); // registers commands to the bot and its groups
 
 const swear_list = ['fuck', 'ass', 'shit', 'hell', 'bollocks', 'fuckass', 'assshit', 'fuckhell', 'shithell', 'assfuck',
     'motherfucker', 'goddamn', 'damn', 'arse', 'asshole', 'fck', 'fucking', 'fuckin', 'fckn'
 ];
 
-bot.on('ready', function () {
-    bot.user.setUsername("saulbot");
+
+client.on('ready', function () {
+    client.user.setUsername("saulbot");
     console.log('bot ready to serve');
+    client.user.setActivity('the peasants work', {type: 'WATCHING'})
+    .then(console.log('activity set'));
 
 });
 
-bot.on('message', message => {
+client.on('message', message => {
 
     function isEmpty(obj) {
         for (var key in obj) {
@@ -72,6 +75,26 @@ bot.on('message', message => {
         });
         message.channel.send('d00d sweared ' + swear_indicator + ' times');
     }
-});
 
-bot.login(objsArray.token);
+
+});
+/*
+client.on('presenceUpdate', (oldM, newM) => {
+    /*
+    if(oldM.presence.status != newM.presence.status) {
+        console.log(`${oldM.user.username} (${oldM.presence.status}) is now ${newM.presence.status}`);
+    }
+    else {
+        console.log(`${oldM.user.username} is now playing ${newM.presence.game.name}`);
+    }
+    if (oldM.user.id == '254955112080867328') {
+        if ((oldM.presence.status == 'offline' || oldM.presence.status == 'idle') && newM.presence.status == 'online') {
+            
+            client.channels.get('461360409874792460').send('run and hide! winnie\'s here! <:monkaCozy:456042470447382538>');
+            console.log('oracle of winnie has been sent');
+        }
+    }
+});
+*/
+
+client.login(objsArray.token);
