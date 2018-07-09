@@ -4,6 +4,7 @@
   "description": "fun bot for the fun people at northeastern",
   "main": "main.js",
   "scripts": {
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,9 +27,10 @@
     "discord.js-commando": "^0.10.0",
     "enmap": "^2.6.3",
     "enmap-level": "^2.1.0",
+    "express": "^4.16.3",
     "fs": "0.0.1-security",
     "rapidapi-connect": "0.0.6",
-    "sqlite": "^2.9.2",
+    "start": "^5.1.0",
     "update-json-file": "^1.1.1",
     "uws": "^10.148.1"
   }

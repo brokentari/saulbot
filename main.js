@@ -4,6 +4,7 @@ const commando = require('discord.js-commando');
 const fs = require('fs');
 const client = new commando.Client(); // imports
 
+
 var auth = fs.readFileSync(__dirname + '\\auth.json');
 var objsArray = [];
 objsArray = JSON.parse(auth); // loads in auth token
