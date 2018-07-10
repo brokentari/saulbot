@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const schedule = require('node-schedule');
 const client = new Discord.Client();
 
-client.login(process.env.LOGIN_AUTH).then(() => {
+client.login(objsArray.token).then(() => {
     console.log('im ready');
     var date = new Date();
 
@@ -24,7 +24,6 @@ client.login(process.env.LOGIN_AUTH).then(() => {
     } else {
         console.log('its not tuesday yet');
     }
-    
 });
 
 process.exit();
