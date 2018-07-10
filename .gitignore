@@ -7,11 +7,11 @@ node_modules/
 # point system database
 data/
 
+trivia/
+
+
 # vs.code settings
 .vscode/
-
-# personalized messages json
-messages.json
 
 # private keys
 saulbot.pem

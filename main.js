@@ -5,9 +5,9 @@ const fs = require('fs');
 const client = new commando.Client(); // imports
 
 
-var auth = fs.readFileSync(__dirname + '/auth.json');
-var objsArray = [];
-objsArray = JSON.parse(auth); // loads in auth token
+// var auth = fs.readFileSync(__dirname + '/auth.json');
+// var objsArray = [];
+// objsArray = JSON.parse(auth); // loads in auth token
 
 var http = require("http");
 setInterval(function() {
@@ -91,4 +91,4 @@ client.on('message', message => {
 
 });
 
-client.login(objsArray.token);
+client.login(process.env.LOGIN_AUTH);
