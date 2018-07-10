@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 const schedule = require('node-schedule');
 const client = new Discord.Client();
 
-client.login("NDYwOTE0MzE2MTU4MzA0Mjc4.DhVo8Q.olyJdYlOWd5mb-UqBK3VtVkq10A").then(() => {
+client.login(process.env.LOGIN_AUTH).then(() => {
     console.log('im ready');
     var date = new Date();
 

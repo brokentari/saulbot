@@ -34,6 +34,7 @@ const swear_list = ['fuck', 'ass', 'shit', 'hell', 'bollocks', 'fuckass', 'asssh
 
 
 client.on('ready', function () {
+
     client.user.setUsername("saulbot");
     console.log('bot ready to serve');
     client.user.setActivity('the peasants work', {type: 'WATCHING'})
@@ -95,5 +96,4 @@ client.on('message', message => {
 
 });
 
-client.login("NDYwOTE0MzE2MTU4MzA0Mjc4.DhVo8Q.olyJdYlOWd5mb-UqBK3VtVkq10A");
-// process.env.LOGIN_AUTH
+client.login(process.env.LOGIN_AUTH);
