@@ -5,15 +5,26 @@ const fs = require('fs');
 const client = new commando.Client(); // imports
 
 
-var auth = fs.readFileSync(__dirname + '\\auth.json');
+var auth = fs.readFileSync(__dirname + '/auth.json');
 var objsArray = [];
 objsArray = JSON.parse(auth); // loads in auth token
+
+var http = require("http");
+setInterval(function() {
+    http.get("http://saubot-online.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
+
+var server_port = process.env.PORT || 8080;
+http.createServer(function (request, response)  {
+    console.log('server created');
+    console.log(request + ': ' + response);
+}).listen(server_port);
 
 client.registry.registerGroup('random', 'Random');
 client.registry.registerGroup('trivia', 'Trivia');
 client.registry.registerGroup('personalization', 'Personalization');
 client.registry.registerDefaults();
-client.registry.registerCommandsIn(__dirname + '\\commands'); // registers commands to the bot and its groups
+client.registry.registerCommandsIn(__dirname + '/commands'); // registers commands to the bot and its groups
 
 const swear_list = ['fuck', 'ass', 'shit', 'hell', 'bollocks', 'fuckass', 'assshit', 'fuckhell', 'shithell', 'assfuck',
     'motherfucker', 'goddamn', 'damn', 'arse', 'asshole', 'fck', 'fucking', 'fuckin', 'fckn'
@@ -41,7 +52,7 @@ client.on('message', message => {
     var message_words = message.content.toLowerCase().split(' ');
 
     if (!(isEmpty(message.mentions.members.keyArray()))) {
-        var pers_mess = fs.readFileSync(__dirname + '\\commands\\personalization\\messages.json');
+        var pers_mess = fs.readFileSync(__dirname + '/commands/personalization/messages.json');
         var messagesObj = [];
         messagesObj = JSON.parse(pers_mess);
 
@@ -70,7 +81,7 @@ client.on('message', message => {
         var imgNum = Math.floor(Math.random() * 4) + 1;
         message.channel.send({
             files: [{
-                attachment: __dirname + '\\swear_images\\' + imgNum + '.jpg',
+                attachment: __dirname + '/swear_images/' + imgNum + '.jpg',
                 name: 'pls_dont_swear.jpg'
             }]
         });

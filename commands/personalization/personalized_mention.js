@@ -7,7 +7,7 @@ const fs = require('fs');
 // const filePath = 'C:/Users/saulr/Documents/GitHub/saulbot/commands/personalization/messages.json';
 // const options = {defaultValue: {} }
 
-var contents = fs.readFileSync(__dirname + '\\messages.json').toString();
+var contents = fs.readFileSync(__dirname + '/messages.json').toString();
 var messagesObj = [];
 messagesObj = JSON.parse(contents);
 
@@ -25,7 +25,7 @@ class PersonalizedMentionCommand extends commando.Command {
         var auth_id = message.author.id;
         messagesObj[auth_id] = args;
 
-        fs.writeFileSync(__dirname + '\\messages.json', JSON.stringify(messagesObj, null, 4), (error) => {
+        fs.writeFileSync(__dirname + '/messages.json', JSON.stringify(messagesObj, null, 4), (error) => {
             console.log('error caught');
         });
 
