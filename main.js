@@ -12,10 +12,6 @@ var date = new Date();
 // var objsArray = [];
 // objsArray = JSON.parse(auth); // loads in auth token
 
-var app = express();
-app.get('/', function(req, res) {
-    res.status(200).send('hello world');
-});
 
 var http = require("http");
 setInterval(function() {
