@@ -1,5 +1,0 @@
-runtime: nodejs
-env: flex
-
-env_variables:
-  LOGIN_AUTH: "NDYwOTE0MzE2MTU4MzA0Mjc4.DiY_oA.NSPXOXnkseQzcvQ5f_w6kWkYdnA"
