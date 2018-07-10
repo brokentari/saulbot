@@ -10,9 +10,9 @@ client.login("NDYwOTE0MzE2MTU4MzA0Mjc4.DhVo8Q.olyJdYlOWd5mb-UqBK3VtVkq10A").then
 
     console.log(date.getDay());
     if (date.getDay() == 2) {
-        var guild = client.guilds.get('461204454511738900');
-        if (guild && guild.channels.get('461204454511738902')) {
-            guild.channels.get('461204454511738902').send({
+        var guild = client.guilds.get('432343677759651841');
+        if (guild && guild.channels.get('432343677759651843')) {
+            guild.channels.get('432343677759651843').send({
                 files: [{
                     attachment: 'tuesday.png',
                     name: 'tuesday.png'
@@ -26,3 +26,5 @@ client.login("NDYwOTE0MzE2MTU4MzA0Mjc4.DhVo8Q.olyJdYlOWd5mb-UqBK3VtVkq10A").then
     }
     
 });
+
+process.exit();
