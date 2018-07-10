@@ -1,10 +1,12 @@
 /*jshint esversion: 6 */
 
+const schedule = require('node-schedule');
 const commando = require('discord.js-commando');
 const fs = require('fs');
 const client = new commando.Client(); // imports
 
 
+var date = new Date();
 // var auth = fs.readFileSync(__dirname + '/auth.json');
 // var objsArray = [];
 // objsArray = JSON.parse(auth); // loads in auth token
@@ -37,6 +39,8 @@ client.on('ready', function () {
     client.user.setActivity('the peasants work', {type: 'WATCHING'})
     .then(console.log('activity set'));
 
+    
+    
 });
 
 client.on('message', message => {
@@ -91,4 +95,5 @@ client.on('message', message => {
 
 });
 
-client.login(process.env.LOGIN_AUTH);
+client.login("NDYwOTE0MzE2MTU4MzA0Mjc4.DhVo8Q.olyJdYlOWd5mb-UqBK3VtVkq10A");
+// process.env.LOGIN_AUTH
