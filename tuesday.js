@@ -8,6 +8,7 @@ client.login("NDYwOTE0MzE2MTU4MzA0Mjc4.DhVo8Q.olyJdYlOWd5mb-UqBK3VtVkq10A").then
     console.log('im ready');
     var date = new Date();
 
+    console.log(date.getDay());
     if (date.getDay() == 2) {
         var guild = client.guilds.get('461204454511738900');
         if (guild && guild.channels.get('461204454511738902')) {
