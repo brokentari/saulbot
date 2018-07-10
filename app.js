@@ -1,4 +1,4 @@
-var Ping = require('./lib/ping'),
+var Ping = require('./ping'),
 websites = [
     {
         url: 'http://saulbot.herokuapp.com',
