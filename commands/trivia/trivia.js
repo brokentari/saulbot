@@ -13,7 +13,7 @@ const PointSystem = new Enmap({
     provider: tableSource
 }); // creates table for point system
 
-var contents = fs.readFileSync(__dirname + '\\pokedex.json');
+var contents = fs.readFileSync(__dirname + '/pokedex.json');
 var objsArray = [];
 objsArray = JSON.parse(contents); // creates json db from pokedex
 
@@ -52,7 +52,7 @@ class pokeTrivia extends commando.Command {
                 PointSystem.set(message.author.id, 0);
             }
 
-            var file_path = __dirname + "\\thm\\" + padNum(pokeNum) + pokeName + ".png";
+            var file_path = __dirname + "/thm/" + padNum(pokeNum) + pokeName + ".png";
 
             message.channel.send({
                 files: [{
