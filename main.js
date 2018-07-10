@@ -79,23 +79,5 @@ client.on('message', message => {
 
 
 });
-/*
-client.on('presenceUpdate', (oldM, newM) => {
-    /*
-    if(oldM.presence.status != newM.presence.status) {
-        console.log(`${oldM.user.username} (${oldM.presence.status}) is now ${newM.presence.status}`);
-    }
-    else {
-        console.log(`${oldM.user.username} is now playing ${newM.presence.game.name}`);
-    }
-    if (oldM.user.id == '254955112080867328') {
-        if ((oldM.presence.status == 'offline' || oldM.presence.status == 'idle') && newM.presence.status == 'online') {
-            
-            client.channels.get('461360409874792460').send('run and hide! winnie\'s here! <:monkaCozy:456042470447382538>');
-            console.log('oracle of winnie has been sent');
-        }
-    }
-});
-*/
 
 client.login(objsArray.token);

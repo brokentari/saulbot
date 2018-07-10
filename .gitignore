@@ -12,3 +12,7 @@ data/
 
 # personalized messages json
 messages.json
+
+# private keys
+saulbot.pem
+saulbot.ppk
