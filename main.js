@@ -4,8 +4,8 @@ const commando = require("discord.js-commando");
 const fs = require("fs");
 const client = new commando.Client(); // imports
 var auth = fs.readFileSync(__dirname + "/auth.json");
-var objsArray = [];
-objsArray = JSON.parse(auth); // loads in auth token
+var loginToken = [];
+loginToken = JSON.parse(auth); // loads in auth token
 
 client.registry.registerGroup("random", "Random");
 client.registry.registerGroup("trivia", "Trivia");
@@ -51,16 +51,14 @@ client.on("message", message => {
     return true;
   }
 
-  function onMessage() {}
-
-  var message_words = message.content.toLowerCase().split(" ");
+  var split_message = message.content.toLowerCase().split(" ");
 
   if (!isEmpty(message.mentions.members.keyArray())) {
-    var pers_mess = fs.readFileSync(
+    var personalized_messages = fs.readFileSync(
       __dirname + "/commands/personalization/messages.json"
     );
-    var messagesObj = [];
-    messagesObj = JSON.parse(pers_mess);
+
+    var personalized_messages_array = JSON.parse(personalized_messages);
 
     for (var i = 0; i < message.mentions.members.keyArray().length; i++) {
       var auth_id = String(message.mentions.members.keyArray()[i]);
@@ -77,16 +75,16 @@ client.on("message", message => {
     }
   }
 
-  var swear_indicator = 0;
-  for (var k = 0; k < message_words.length; k++) {
+  var swear_counter = 0;
+  for (var k = 0; k < split_message.length; k++) {
     for (var j = 0; j < swear_list.length; j++) {
-      if (message_words[k] === swear_list[j]) {
-        swear_indicator++;
+      if (split_message[k] === swear_list[j]) {
+        swear_counter++;
       }
     }
   }
 
-  if (swear_indicator != 0) {
+  if (swear_counter != 0) {
     var imgNum = Math.floor(Math.random() * 4) + 1;
     message.channel.send({
       files: [
@@ -96,8 +94,8 @@ client.on("message", message => {
         }
       ]
     });
-    message.channel.send("d00d sweared " + swear_indicator + " times");
+    message.channel.send("d00d sweared " + swear_counter + " times");
   }
 });
 
-client.login(objsArray.token);
+client.login(loginToken.token);
