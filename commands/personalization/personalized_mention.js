@@ -2,13 +2,9 @@
 
 const commando = require("discord.js-commando");
 const fs = require("fs");
-// const updateJsonFile = require('update-json-file');
-// const filePath = 'C:/Users/saulr/Documents/GitHub/saulbot/commands/personalization/messages.json';
-// const options = {defaultValue: {} }
 
 var contents = fs.readFileSync(__dirname + "/messages.json").toString();
-var messagesObj = [];
-messagesObj = JSON.parse(contents);
+var messagesObj = JSON.parse(contents);
 
 class PersonalizedMentionCommand extends commando.Command {
   constructor(client) {

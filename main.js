@@ -4,8 +4,7 @@ const commando = require("discord.js-commando");
 const fs = require("fs");
 const client = new commando.Client(); // imports
 var auth = fs.readFileSync(__dirname + "/auth.json");
-var loginToken = [];
-loginToken = JSON.parse(auth); // loads in auth token
+var loginToken = (loginToken = JSON.parse(auth)); // loads in auth token
 
 client.registry.registerGroup("random", "Random");
 client.registry.registerGroup("trivia", "Trivia");
@@ -58,16 +57,18 @@ client.on("message", message => {
       __dirname + "/commands/personalization/messages.json"
     );
 
+    var messagesDB = JSON.parse(personalized_messages);
+
     var personalized_messages_array = JSON.parse(personalized_messages);
 
     for (var i = 0; i < message.mentions.members.keyArray().length; i++) {
       var auth_id = String(message.mentions.members.keyArray()[i]);
       if (
-        messagesObj[auth_id] != undefined &&
+        messagesDB[auth_id] != undefined &&
         message.author.id != 460914316158304278
       ) {
         message.channel
-          .send(String(messagesObj[auth_id]))
+          .send(String(messagesDB[auth_id]))
           .then(message => console.log("message: " + message)) // jshint ignore:line
           .catch(console.error);
       } else {
