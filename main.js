@@ -99,4 +99,4 @@ client.on("message", message => {
   }
 });
 
-client.login(loginToken.token);
+client.login(process.env.LOGINTK);
