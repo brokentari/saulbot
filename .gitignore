@@ -1,5 +1,6 @@
 # discord bot login
 auth.json
+app.yaml
 
 # node_modules
 node_modules/
