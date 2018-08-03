@@ -86,7 +86,7 @@ client.on("message", message => {
   }
 
   if (swear_counter != 0) {
-    var imgNum = Math.floor(Math.random() * 4) + 1;
+    var imgNum = Math.floor(Math.random() * 8) + 1;
     message.channel.send({
       files: [
         {
