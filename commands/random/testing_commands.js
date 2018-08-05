@@ -3,6 +3,13 @@
 const commando = require("discord.js-commando");
 const Discord = require("discord.js");
 const fs = require("fs");
+const PythonShell = require("python-shell");
+
+var options = {
+  mode: "text",
+  pythonOptions: ["-u"],
+  scriptPath: __dirname
+};
 
 class TestingCommands extends commando.Command {
   constructor(client) {
@@ -15,8 +22,12 @@ class TestingCommands extends commando.Command {
   }
 
   async run(message, args) {
-    // jshint ignore:line
-    console.log("testing purpose");
+    PythonShell.run("script.py", options, function(err, results) {
+      if (err) throw err;
+      message.channel
+        .send(results.toString().replace("\r", ""))
+        .then(console.log("message sent"));
+    });
   }
 }
 

@@ -3,8 +3,6 @@
 const commando = require("discord.js-commando");
 const fs = require("fs");
 const client = new commando.Client(); // imports
-var auth = fs.readFileSync(__dirname + "/auth.json");
-var loginToken = (loginToken = JSON.parse(auth)); // loads in auth token
 
 client.registry.registerGroup("random", "Random");
 client.registry.registerGroup("trivia", "Trivia");
