@@ -32,7 +32,7 @@ const swear_list = [
   "fckn"
 ];
 
-client.on("ready", function() {
+client.on("ready", function () {
   client.user.setUsername("saulbot");
   console.log("bot ready to serve");
   client.user
